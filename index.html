@@ -1174,7 +1174,7 @@ body {
       <div class="home-card" onclick="enterSchedule()">
         <div class="home-card-icon">📚</div>
         <div class="home-card-title">우리학교 교육과정</div>
-        <div class="home-card-desc">2025, 2026학년도 입학생 기준<br>학년·학기별 개설 과목을<br>누구나 확인할 수 있습니다</div>
+        <div class="home-card-desc">2025, 2026학년도 입학생 기준<br>학년·학기별 개설 과목을 누구나 확인할 수 있습니다</div>
         <div class="home-card-btn">바로 보기 →</div>
       </div>
       <div class="home-card home-card-teacher" onclick="showPasswordModal()">
@@ -1249,7 +1249,7 @@ body {
   <main class="main-wrap">
     <div class="page-top-bar">
       <button class="btn-ghost" onclick="goHomeFromCounsel()">← 홈으로</button>
-      <span class="page-mode-badge teacher-badge">🗂️ 교사 상담 도구</span>
+      <span class="page-mode-badge teacher-badge">🗂️</span>
     </div>
 
     <nav class="step-nav" aria-label="진행 단계">
@@ -1273,8 +1273,8 @@ body {
     <section class="step-panel active" id="step1">
       <div class="panel-header">
         <span class="panel-eyebrow">STEP 1</span>
-        <h2 class="panel-title">관심학과 검색 및 권장과목 확인</h2>
-        <p class="panel-desc">학생의 관심학과를 먼저 검색하고, 권장 이수과목을 확인하세요. 관심학과는 선택하지 않아도 다음 단계로 이동할 수 있습니다.</p>
+        <h2 class="panel-title">관심 학과 검색 및 권장과목 확인</h2>
+        <p class="panel-desc">학생의 관심 학과를 먼저 검색하고, 권장 이수과목을 확인하세요. 관심학과는 선택하지 않아도 다음 단계로 이동할 수 있습니다.</p>
       </div>
 
       <div class="card">
@@ -1287,7 +1287,7 @@ body {
       <div id="selectedMajorInfo" class="card hidden">
         <div class="selected-major-header">
           <div>
-            <div class="selected-major-label">선택된 관심학과</div>
+            <div class="selected-major-label">선택된 관심 학과</div>
             <div class="selected-major-name" id="selectedMajorName"></div>
           </div>
           <button class="btn-ghost" onclick="clearMajor()">변경</button>
@@ -1456,7 +1456,7 @@ const schoolCourses = [
           { name: "대수", credits: 4 },
           { name: "미적분Ⅰ", credits: 4 },
           { name: "영어Ⅰ", credits: 4 },
-          { name: "스포츠생활1", credits: 2 },
+          { name: "스포츠 생활1", credits: 2 },
         ]
       },
       {
@@ -1494,7 +1494,7 @@ const schoolCourses = [
           { name: "독서와 작문", credits: 4 },
           { name: "확률과 통계", credits: 3 },
           { name: "영어Ⅱ", credits: 4 },
-          { name: "스포츠생활2", credits: 2 },
+          { name: "스포츠 생활2", credits: 2 },
         ]
       },
       {
@@ -1875,7 +1875,7 @@ const schoolCourses = [
 
 /**
  * ============================================================
- *  majorRecommendations  –  계열/관련학과별 권장과목 데이터
+ *  majorRecommendations  –  계열/관련 학과별 권장과목 데이터
  * ============================================================
  */
 const majorRecommendations = [
@@ -1883,7 +1883,7 @@ const majorRecommendations = [
     "id": "field_농학계열",
     "_type": "field",
     "name": "농학계열",
-    "category": "계열/관련학과",
+    "category": "계열/관련 학과",
     "keywords": [
       "농학계열",
       "농학",
@@ -1942,7 +1942,7 @@ const majorRecommendations = [
     "id": "field_생활과학계열",
     "_type": "field",
     "name": "생활과학계열",
-    "category": "계열/관련학과",
+    "category": "계열/관련 학과",
     "keywords": [
       "생활과학계열",
       "생활과학",
@@ -1991,7 +1991,7 @@ const majorRecommendations = [
     "id": "field_정보_컴퓨터계열",
     "_type": "field",
     "name": "정보·컴퓨터계열",
-    "category": "계열/관련학과",
+    "category": "계열/관련 학과",
     "keywords": [
       "정보·컴퓨터계열",
       "정보·컴퓨터",
@@ -2061,7 +2061,7 @@ const majorRecommendations = [
     "id": "field_건축_환경계열",
     "_type": "field",
     "name": "건축·환경계열",
-    "category": "계열/관련학과",
+    "category": "계열/관련 학과",
     "keywords": [
       "건축·환경계열",
       "건축·환경",
@@ -2122,7 +2122,7 @@ const majorRecommendations = [
     "id": "field_화학_생명계열",
     "_type": "field",
     "name": "화학·생명계열",
-    "category": "계열/관련학과",
+    "category": "계열/관련 학과",
     "keywords": [
       "화학·생명계열",
       "화학·생명",
@@ -2185,7 +2185,7 @@ const majorRecommendations = [
     "id": "field_보건계열",
     "_type": "field",
     "name": "보건계열",
-    "category": "계열/관련학과",
+    "category": "계열/관련 학과",
     "keywords": [
       "보건계열",
       "보건",
@@ -2237,7 +2237,7 @@ const majorRecommendations = [
     "id": "field_교육계열",
     "_type": "field",
     "name": "교육계열",
-    "category": "계열/관련학과",
+    "category": "계열/관련 학과",
     "keywords": [
       "교육계열",
       "교육",
@@ -2321,7 +2321,7 @@ const majorRecommendations = [
     "id": "field_예술계열",
     "_type": "field",
     "name": "예술계열",
-    "category": "계열/관련학과",
+    "category": "계열/관련 학과",
     "keywords": [
       "예술계열",
       "예술",
@@ -2440,7 +2440,7 @@ const majorRecommendations = [
     "id": "field_체육계열",
     "_type": "field",
     "name": "체육계열",
-    "category": "계열/관련학과",
+    "category": "계열/관련 학과",
     "keywords": [
       "체육계열",
       "체육",
@@ -2519,7 +2519,7 @@ const majorRecommendations = [
     "id": "field_의약학계열",
     "_type": "field",
     "name": "의약학계열",
-    "category": "계열/관련학과",
+    "category": "계열/관련 학과",
     "keywords": [
       "의약학계열",
       "의약학",
@@ -2577,7 +2577,7 @@ const majorRecommendations = [
     "id": "field_언어_문학계열",
     "_type": "field",
     "name": "언어·문학계열",
-    "category": "계열/관련학과",
+    "category": "계열/관련 학과",
     "keywords": [
       "언어·문학계열",
       "언어·문학",
@@ -2649,7 +2649,7 @@ const majorRecommendations = [
     "id": "field_인문과학계열",
     "_type": "field",
     "name": "인문과학계열",
-    "category": "계열/관련학과",
+    "category": "계열/관련 학과",
     "keywords": [
       "인문과학계열",
       "인문과학",
@@ -2724,7 +2724,7 @@ const majorRecommendations = [
     "id": "field_상경계열",
     "_type": "field",
     "name": "상경계열",
-    "category": "계열/관련학과",
+    "category": "계열/관련 학과",
     "keywords": [
       "상경계열",
       "상경",
@@ -2798,7 +2798,7 @@ const majorRecommendations = [
     "id": "field_광고언론정보계열",
     "_type": "field",
     "name": "광고언론정보계열",
-    "category": "계열/관련학과",
+    "category": "계열/관련 학과",
     "keywords": [
       "광고언론정보계열",
       "광고언론정보",
@@ -2851,7 +2851,7 @@ const majorRecommendations = [
     "id": "field_사회과학계열",
     "_type": "field",
     "name": "사회과학계열",
-    "category": "계열/관련학과",
+    "category": "계열/관련 학과",
     "keywords": [
       "사회과학계열",
       "사회과학",
@@ -2913,7 +2913,7 @@ const majorRecommendations = [
     "id": "field_법_행정계열",
     "_type": "field",
     "name": "법·행정계열",
-    "category": "계열/관련학과",
+    "category": "계열/관련 학과",
     "keywords": [
       "법·행정계열",
       "법·행정",
@@ -2963,7 +2963,7 @@ const majorRecommendations = [
     "id": "field_자연과학계열",
     "_type": "field",
     "name": "자연과학계열",
-    "category": "계열/관련학과",
+    "category": "계열/관련 학과",
     "keywords": [
       "자연과학계열",
       "자연과학",
@@ -3035,7 +3035,7 @@ const majorRecommendations = [
     "id": "field_기계_전기_전자계열",
     "_type": "field",
     "name": "기계·전기·전자계열",
-    "category": "계열/관련학과",
+    "category": "계열/관련 학과",
     "keywords": [
       "기계·전기·전자계열",
       "기계·전기·전자",
@@ -3102,7 +3102,7 @@ const majorRecommendations = [
     "id": "field_자율전공계열",
     "_type": "field",
     "name": "자율전공계열",
-    "category": "계열/관련학과",
+    "category": "계열/관련 학과",
     "keywords": [
       "자율전공계열",
       "자율전공",
@@ -3408,7 +3408,7 @@ function getStudentInfo() {
 }
 
 /* ────────────────────────────────────────────
-   STEP 2: 관심학과 검색 (majorRecommendations + 대학별 데이터 통합)
+   STEP 2: 관심 학과 검색 (majorRecommendations + 대학별 데이터 통합)
 ──────────────────────────────────────────── */
 
 // 대학별 권장과목 데이터를 검색 가능한 flat 배열로 변환
@@ -3477,7 +3477,7 @@ function searchMajors() {
   const resultEl = document.getElementById("majorSearchResults");
   if (!query) { resultEl.classList.add("hidden"); return; }
 
-  // 계열/관련학과 검색: 권장과목과 상담문구는 검색 대상에서 제외
+  // 계열/관련 학과 검색: 권장과목과 상담문구는 검색 대상에서 제외
   const localHits = majorRecommendations.filter(m => {
     const blob = makeSearchBlob([
       m.name,
@@ -3510,7 +3510,7 @@ function searchMajors() {
   let html = "";
 
   if (limitedLocal.length > 0) {
-    html += `<div style="font-size:11px;font-weight:700;color:#8E99AE;padding:8px 4px 2px;letter-spacing:.05em;">계열/관련학과 검색 결과</div>`;
+    html += `<div style="font-size:11px;font-weight:700;color:#8E99AE;padding:8px 4px 2px;letter-spacing:.05em;">계열/관련 학과 검색 결과</div>`;
     html += limitedLocal.map(m => {
       const key = `field__${m.id}`;
       return renderSelectableResult({
@@ -3518,7 +3518,7 @@ function searchMajors() {
         type: "계열",
         title: m.name,
         subtitle: m.relatedDepts && m.relatedDepts.length
-          ? `관련학과: ${m.relatedDepts.slice(0, 6).join(", ")}${m.relatedDepts.length > 6 ? " 외" : ""}`
+          ? `관련 학과: ${m.relatedDepts.slice(0, 6).join(", ")}${m.relatedDepts.length > 6 ? " 외" : ""}`
           : m.category,
         onclick: `selectMajor('${String(m.id).replace(/'/g, "\\'")}')`
       });
@@ -3617,7 +3617,7 @@ function selectMajor(id) {
   const related = (major.relatedDepts || []).slice(0, 8).join(" · ");
   if (related) {
     document.getElementById("selectedMajorName").insertAdjacentHTML("afterend",
-      `<div style="font-size:12px;color:var(--c-text-mute);margin-top:2px;">관련학과: ${related}</div>`
+      `<div style="font-size:12px;color:var(--c-text-mute);margin-top:2px;">관련 학과: ${related}</div>`
     );
   }
   document.getElementById("majorRecommendedCourses").innerHTML =
