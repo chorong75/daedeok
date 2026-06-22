@@ -32,7 +32,24 @@ function showHome() {
   document.getElementById("headerMode").textContent = "";
 }
 
-function goHome() {
+// 헤더 타이틀 클릭 시 현재 페이지에 따라 다르게 동작
+function handleHeaderClick() {
+  const scheduleVisible = !document.getElementById("schedulePage").classList.contains("hidden");
+  const counselVisible  = !document.getElementById("counselPage").classList.contains("hidden");
+  if (scheduleVisible) {
+    goHomeFromSchedule();
+  } else if (counselVisible) {
+    goHomeFromCounsel();
+  }
+}
+
+// 편제표에서 홈으로 (팝업 없음)
+function goHomeFromSchedule() {
+  showHome();
+}
+
+// 상담 페이지에서 홈으로 (팝업 있음)
+function goHomeFromCounsel() {
   if (!confirm("홈으로 돌아가면 현재 작업 내용이 사라질 수 있습니다. 계속하시겠습니까?")) return;
   showHome();
 }

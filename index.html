@@ -10,7 +10,7 @@
 
 <header class="site-header">
   <div class="header-inner">
-    <div class="header-brand">
+    <div class="header-brand" onclick="handleHeaderClick()" style="cursor:pointer;">
       <span class="brand-icon">📋</span>
       <div>
         <div class="brand-title">대덕고 선택과목 안내</div>
@@ -64,7 +64,7 @@
 <div id="schedulePage" class="page hidden">
   <main class="main-wrap">
     <div class="page-top-bar">
-      <button class="btn-ghost" onclick="goHome()">← 홈으로</button>
+      <button class="btn-ghost" onclick="goHomeFromSchedule()">← 홈으로</button>
       <span class="page-mode-badge">📚 편제표 확인</span>
     </div>
     <div class="panel-header">
@@ -105,7 +105,7 @@
 <div id="counselPage" class="page hidden">
   <main class="main-wrap">
     <div class="page-top-bar">
-      <button class="btn-ghost" onclick="goHome()">← 홈으로</button>
+      <button class="btn-ghost" onclick="goHomeFromCounsel()">← 홈으로</button>
       <span class="page-mode-badge teacher-badge">🗂️ 교사 상담 도구</span>
     </div>
 
