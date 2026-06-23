@@ -6043,39 +6043,6 @@ var UNIV_DATA = [{"id":"가톨릭대","name":"가톨릭대","hasRec":true,"admYe
 /* ────────────────────────────────────────────
    새 상담 시작
 ──────────────────────────────────────────── */
-/* ────────────────────────────────────────────
-   방문자 카운터 (hits.sh SVG 파싱)
-   ★ 아래 HITS_URL 두 곳을 실제 주소로 바꿔주세요
-──────────────────────────────────────────── */
-async function loadHitsCount() {
-  const SITE = "yourusername.github.io/yourrepo"; // ← 여기 수정
-  try {
-    // 누적: 일반 hits 엔드포인트 (카운트 증가 + 반환)
-    const [resTotal, resToday] = await Promise.all([
-      fetch(`https://hits.sh/${SITE}.svg`),
-      fetch(`https://hits.sh/${SITE}/today.svg`)
-    ]);
-    const [svgTotal, svgToday] = await Promise.all([resTotal.text(), resToday.text()]);
-
-    const parseNum = svg => {
-      const matches = svg.match(/>(\d[\d,]*)</g);
-      if (!matches) return "–";
-      // 마지막으로 등장하는 숫자값 사용
-      return matches[matches.length - 1].replace(/>|</g, "");
-    };
-
-    const elToday = document.getElementById("cntToday");
-    const elTotal = document.getElementById("cntTotal");
-    if (elToday) elToday.textContent = parseNum(svgToday);
-    if (elTotal) elTotal.textContent = parseNum(svgTotal);
-  } catch (e) {
-    // 실패해도 조용히 무시
-  }
-}
-
-// 페이지 로드 시 카운터 초기화
-document.addEventListener("DOMContentLoaded", loadHitsCount);
-
 function resetAll() {
   if (!confirm("새 상담을 시작하면 현재 입력 내용이 모두 초기화됩니다. 계속하시겠습니까?")) return;
   document.getElementById("studentName").value = "";
@@ -6094,5 +6061,86 @@ function resetAll() {
   goStep(1);
 }
 </script>
+
+<!-- ───────── Firebase 방문자 카운터: Today / Total ───────── -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+  import {
+    getFirestore,
+    doc,
+    getDoc,
+    setDoc,
+    increment
+  } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyAgggZGM2ijV22EMW27gecHYd13wGnQzXo",
+    authDomain: "edu-search-counter.firebaseapp.com",
+    projectId: "edu-search-counter",
+    storageBucket: "edu-search-counter.firebasestorage.app",
+    messagingSenderId: "84102963850",
+    appId: "1:84102963850:web:25af7ff8e520b4c70cc373"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  const SITE_ID = "chorong75.github.io/daedeok";
+
+  function getKoreaDateKey() {
+    const parts = new Intl.DateTimeFormat("en-CA", {
+      timeZone: "Asia/Seoul",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit"
+    }).formatToParts(new Date());
+
+    const y = parts.find(part => part.type === "year").value;
+    const m = parts.find(part => part.type === "month").value;
+    const d = parts.find(part => part.type === "day").value;
+    return `${y}-${m}-${d}`;
+  }
+
+  function setCounterText(today, total) {
+    const todayEl = document.getElementById("cntToday");
+    const totalEl = document.getElementById("cntTotal");
+    if (todayEl) todayEl.textContent = today.toLocaleString("ko-KR");
+    if (totalEl) totalEl.textContent = total.toLocaleString("ko-KR");
+  }
+
+  async function loadVisitCounter() {
+    const todayKey = getKoreaDateKey();
+    const todayRef = doc(db, "visitCounters", `daily_${todayKey}`);
+    const totalRef = doc(db, "visitCounters", "total");
+
+    // 같은 브라우저에서는 하루에 한 번만 방문자로 집계
+    const localVisitKey = `daedeok_visit_${todayKey}`;
+    const hasVisitedToday = localStorage.getItem(localVisitKey) === "yes";
+
+    try {
+      if (!hasVisitedToday) {
+        await Promise.all([
+          setDoc(todayRef, { site: SITE_ID, date: todayKey, visits: increment(1) }, { merge: true }),
+          setDoc(totalRef, { site: SITE_ID, visits: increment(1) }, { merge: true })
+        ]);
+        localStorage.setItem(localVisitKey, "yes");
+      }
+
+      const [todaySnap, totalSnap] = await Promise.all([
+        getDoc(todayRef),
+        getDoc(totalRef)
+      ]);
+
+      const todayVisits = todaySnap.exists() ? (todaySnap.data().visits || 0) : 0;
+      const totalVisits = totalSnap.exists() ? (totalSnap.data().visits || 0) : 0;
+      setCounterText(todayVisits, totalVisits);
+    } catch (error) {
+      console.warn("방문자 카운터를 불러오지 못했습니다.", error);
+    }
+  }
+
+  loadVisitCounter();
+</script>
+
 </body>
 </html>
