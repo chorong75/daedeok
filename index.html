@@ -608,6 +608,8 @@ body {
 .memo-hint { font-size: 12px; color: var(--c-text-mute); }
 .memo-textarea {
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   border: 1.5px solid #DDD6F0;
   border-radius: var(--radius-sm);
   padding: 12px 14px;
@@ -620,7 +622,6 @@ body {
   background: var(--c-surface);
   line-height: 1.7;
 }
-.memo-textarea:focus { border-color: #9B8FD4; }
 
 /* ── 결과 화면 ──────────────────────────── */
 .result-block {
